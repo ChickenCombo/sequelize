@@ -1,12 +1,15 @@
 import { Sequelize } from "sequelize-typescript";
 import { User } from "../models/User";
+import "dotenv/config";
+
+require("dotenv").config();
 
 export const connection = new Sequelize({
   dialect: "mssql",
-  host: "192.168.1.3",
-  database: "database-name",
-  username: "username",
-  password: "password",
+  host: process.env.HOST,
+  database: process.env.DATABASE,
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
   port: 63031,
   dialectOptions: {
     options: {

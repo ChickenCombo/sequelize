@@ -35,9 +35,9 @@ app.post("/user", async (req: Request, res: Response) => {
     return res.status(404).json({ error: "Please fill up all fields" });
   }
 
-  const dog: User = await User.create({ ...req.body });
+  const newUser: User = await User.create({ ...req.body });
 
-  return res.status(201).json(dog);
+  return res.status(201).json(newUser);
 });
 
 // Update user
