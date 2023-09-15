@@ -6,11 +6,11 @@ require("dotenv").config();
 
 export const connection = new Sequelize({
   dialect: "mssql",
-  host: process.env.HOST,
-  database: process.env.DATABASE,
-  username: process.env.USERNAME,
-  password: process.env.PASSWORD,
-  port: 63031,
+  host: process.env.HOST!,
+  database: process.env.DATABASE!,
+  username: process.env.USERNAME!,
+  password: process.env.PASSWORD!,
+  port: +process.env.PORT!,
   dialectOptions: {
     options: {
       encrypt: false,
