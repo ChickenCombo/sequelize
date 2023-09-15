@@ -24,6 +24,12 @@ export class User extends Model {
   firstName!: string;
 
   @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  lastName!: string;
+
+  @Column({
     type: DataType.INTEGER,
     allowNull: false,
   })
