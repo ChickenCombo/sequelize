@@ -1,4 +1,5 @@
 import express, { Express } from "express";
+import cors from "cors";
 import { connection } from "./utils/connection";
 import userRouter from "./routes/user.route";
 import "reflect-metadata";
@@ -6,6 +7,7 @@ import "reflect-metadata";
 const port: number = 3000;
 const app: Express = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.use("/user", userRouter);
