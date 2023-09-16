@@ -15,17 +15,17 @@ export class User extends Model {
   @PrimaryKey
   @Default(DataType.UUIDV4)
   @Column(DataType.UUID)
-  userId!: string;
+  declare userId: string;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  firstName!: string;
+  declare firstName: string;
 
   @Column({
     type: DataType.INTEGER,
     allowNull: false,
   })
-  age!: number;
+  declare age: number;
 }
