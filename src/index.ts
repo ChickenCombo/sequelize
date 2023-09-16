@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import cors from "cors";
 import { connection } from "./utils/connection";
+import { logger } from "./utils/logger";
 import userRouter from "./routes/user.route";
 import "reflect-metadata";
 
@@ -15,9 +16,9 @@ app.use("/user", userRouter);
 app.listen(port, async () => {
   try {
     await connection.sync();
-    console.log(`Server running on http://localhost:${port}`);
+    logger.info(`Server is running on port ${port}`);
   } catch (error) {
-    console.error(`Failed to connect: ${error}`);
+    logger.error(`Failed to connect: ${error}`);
     process.exit(1);
   }
 });

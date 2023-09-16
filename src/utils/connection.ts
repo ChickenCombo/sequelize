@@ -1,8 +1,9 @@
 import { Sequelize } from "sequelize-typescript";
 import { User } from "../models/user.model";
-import "dotenv/config";
+import { logger } from "./logger";
+import dotenv from "dotenv";
 
-require("dotenv").config();
+dotenv.config();
 
 export const connection = new Sequelize({
   dialect: "mssql",
@@ -11,6 +12,7 @@ export const connection = new Sequelize({
   username: process.env.USERNAME!,
   password: process.env.PASSWORD!,
   port: +process.env.PORT!,
+  logging: (sql) => logger.info(sql),
   dialectOptions: {
     options: {
       encrypt: false,
