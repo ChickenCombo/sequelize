@@ -14,6 +14,8 @@ app.use(express.json());
 app.use("/user", userRouter);
 
 app.listen(port, async () => {
+  console.clear();
+  
   try {
     await connection.sync();
     logger.info(`Server is running on port ${port}`);
