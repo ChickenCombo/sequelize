@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export const connection = new Sequelize({
+const sequelize = new Sequelize({
   dialect: "mssql",
   host: process.env.HOST!,
   database: process.env.DATABASE!,
@@ -20,3 +20,5 @@ export const connection = new Sequelize({
   },
   models: [User],
 });
+
+export default sequelize;

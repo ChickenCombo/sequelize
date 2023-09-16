@@ -1,6 +1,6 @@
 import express, { Express } from "express";
 import cors from "cors";
-import { connection } from "./utils/connection";
+import sequelize from "./utils/connection";
 import { logger } from "./utils/logger";
 import userRouter from "./routes/user.route";
 import "reflect-metadata";
@@ -15,9 +15,9 @@ app.use("/user", userRouter);
 
 app.listen(port, async () => {
   console.clear();
-  
+
   try {
-    await connection.sync();
+    await sequelize.sync();
     logger.info(`Server is running on port ${port}`);
   } catch (error) {
     logger.error(`Failed to connect: ${error}`);
